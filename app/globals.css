@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(63, 125, 58, 0.12) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+}
+
+::selection {
+  background: #f4b93c;
+  color: #1f2a1a;
+}
+
+:focus-visible {
+  outline: 2px solid #3e8ea8;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.label-tag {
+  border: 1px dashed rgba(31, 42, 26, 0.35);
+  border-radius: 999px;
+}
+
+.specimen-corner {
+  position: relative;
+}
+.specimen-corner::before {
+  content: attr(data-tag);
+  position: absolute;
+  top: -10px;
+  right: 18px;
+  background: #f4b93c;
+  color: #1f2a1a;
+  font-family: var(--font-inter);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  box-shadow: 0 1px 0 rgba(31, 42, 26, 0.25);
+}
+
+.torn-border {
+  border: 1px solid rgba(31, 42, 26, 0.15);
+}
